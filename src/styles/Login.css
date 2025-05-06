@@ -5,6 +5,7 @@
   align-items: center;
   height: 100vh;         /* full screen height */
   background-color: var(--bg-color);background-color: #f0f2f5;
+  width: 100vw;
 }
 
 .login-card {
@@ -34,7 +35,7 @@
 }
 
 .form-input {
-  width: 100%;
+  width: 95%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
