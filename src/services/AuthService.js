@@ -1,6 +1,6 @@
 export const loginUser = async (username, password) => {
     const VALID_USERNAME = "admin@example.com";
-    const VALID_PASSWORD = "password123";
+    const VALID_PASSWORD = "asd";
   
     return new Promise((resolve, reject) => {
       setTimeout(() => {

@@ -14,3 +14,18 @@
     color: var(--text-color);
   }
   
+
+  :root {
+    --background: #ffffff;
+    --text-color: #000000;
+    --sidebar-bg: #f0f0f0;
+    --topbar-bg: #eaeaea;
+  }
+  
+  /* Dark Theme */
+  [data-theme='dark'] {
+    --background: #121212;
+    --text-color: #ffffff;
+    --sidebar-bg: #1e1e1e;
+    --topbar-bg: #222;
+  }

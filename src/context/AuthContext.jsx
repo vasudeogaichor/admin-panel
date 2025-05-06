@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     try {
       const data = await loginUser(credentials.username, credentials.password);
+      console.log("data - ", data)
       dispatch({ type: "LOGIN", payload: data });
       return { success: true };
     } catch (err) {
@@ -41,8 +42,10 @@ export const AuthProvider = ({ children }) => {
     return state.user?.permissions?.includes(`${resource}:${action}`);
   };
 
+  const isAuthenticated = !!state.token;
+
   return (
-    <AuthContext.Provider value={{ ...state, login, logout, canAccess }}>
+    <AuthContext.Provider value={{ ...state, login, logout, canAccess, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );
