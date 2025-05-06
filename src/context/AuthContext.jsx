@@ -1,5 +1,6 @@
 // context/AuthContext.jsx
 import { createContext, useContext, useReducer } from "react";
+import { loginUser } from "../services/AuthService";
 
 const AuthContext = createContext();
 
@@ -25,13 +26,13 @@ export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const login = async (credentials) => {
-    const res = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    });
-    const data = await res.json();
-    dispatch({ type: "LOGIN", payload: data });
+    try {
+      const data = await loginUser(credentials.username, credentials.password);
+      dispatch({ type: "LOGIN", payload: data });
+      return { success: true };
+    } catch (err) {
+      return { success: false, message: err.message };
+    }
   };
 
   const logout = () => dispatch({ type: "LOGOUT" });
